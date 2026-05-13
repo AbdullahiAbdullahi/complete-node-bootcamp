@@ -1,6 +1,11 @@
 <div class="card">
-  <h2>{%PRODUCTNAME%}</h2>
-  <p>Price: {%PRICE%}</p>
-  <p>From: {%FROM%}</p>
-  <p>{%DESCRIPTION%}</p>
+  <img src="{%IMAGE%}" alt="{%PRODUCTNAME%}" class="card__img" />
+  <div class="card__content">
+    <h2 class="card__title">{%PRODUCTNAME%}</h2>
+    <p class="card__description">{%DESCRIPTION%}</p>
+    <p class="card__price">£{%PRICE%}</p>
+    <a href="/product?id={%ID%}" class="card__link">
+      <span>Details →</span>
+    </a>
+  </div>
 </div>
