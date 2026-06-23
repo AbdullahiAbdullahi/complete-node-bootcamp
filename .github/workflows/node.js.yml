@@ -2,9 +2,9 @@ name: Node Farm Automated Testing
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   run-tests:
@@ -20,10 +20,16 @@ jobs:
         node-version: '20'
 
     - name: Install Project Dependencies
-      run: npm install slugify
+      run: |
+        cd 1-node-farm
+        npm install slugify
 
     - name: Install Jest Framework
-      run: npm install jest --save-dev
+      run: |
+        cd 1-node-farm
+        npm install jest --save-dev
 
     - name: Execute Automated Test Suite
-      run: npx jest index.test.js
+      run: |
+        cd 1-node-farm
+        npx jest index.test.js
