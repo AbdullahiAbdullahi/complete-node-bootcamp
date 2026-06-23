@@ -1,0 +1,29 @@
+name: Node Farm Automated Testing
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Project Dependencies
+      run: npm install slugify
+
+    - name: Install Jest Framework
+      run: npm install jest --save-dev
+
+    - name: Execute Automated Test Suite
+      run: npx jest index.test.js
